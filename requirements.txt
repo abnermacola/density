@@ -1,4 +1,6 @@
 numpy==1.23.5
 opencv-python==4.10.0
-streamlit==1.37.0
+streamlit==1.37.1
 tensorflow==2.14.0
+pydicom==2.4.4
+PIL==10.4.0
