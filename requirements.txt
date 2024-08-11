@@ -1,5 +1,5 @@
-numpy==1.23.5
-opencv-python==4.10.0.84
-streamlit==1.37.1
+numpy
+opencv-contrib-python-headless
+streamlit
 tensorflow==2.14.0
-pydicom==2.4.4
+pydicom
