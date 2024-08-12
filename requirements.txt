@@ -1,5 +1,5 @@
 numpy
 opencv-python
 streamlit
-tensorflow==2.14.0
+tensorflow
 pydicom
