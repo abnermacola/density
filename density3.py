@@ -77,7 +77,7 @@ if uploaded_file is not None:
 
     model_paths = {
         'densidade': 'new_breast_densityII_128_10k.h5',      
-        'calcificaçõess': 'calcificacoes.h5',
+        'calcificações': 'calcificacoes.h5',
         'distorção arquitetural': 'distorcao.h5',
         'espessamento, retração de pele ou areolar': 'espessamento.h5',
         'esteatonecrose': 'esteatonecrose.h5',
