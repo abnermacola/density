@@ -1,5 +1,5 @@
 numpy
 opencv-contrib-python-headless
 streamlit
-tensorflow
+tensorflow==2.15
 pydicom
