@@ -97,7 +97,11 @@ if uploaded_file is not None:
                 prediction_density = model.predict(np.expand_dims(preprocessed_image, axis=0))
                 predicted_class_index_density = np.argmax(prediction_density)
                 predicted_class_label_density = class_labels_density[predicted_class_index_density]
-                st.write(f"{model_name.capitalize()}: {predicted_class_label_density}")
+                
+                if predicted_class_label_density in ["BIRADS A", "BIRADS B"]:
+                    st.write(f"Mama não densa: {predicted_class_label_density}")
+                else:
+                    st.write(f"Mama densa: {predicted_class_label_density}")
             else:
                 predicted_class_label = predict_class(model, preprocessed_image, class_labels_achados)
                 if predicted_class_label:
