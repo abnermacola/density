@@ -48,9 +48,9 @@ def predict_class(model, image, class_labels):
         st.error(f"Error predicting class: {e}")
         return None
 
-st.title("Predição de Densidade Mamária")
+st.title("Breast Density Assessment")
 
-uploaded_file = st.file_uploader("Selecione o arquivo", type=["dcm", "jpeg", "jpg", "png"])
+uploaded_file = st.file_uploader("Select the file", type=["dcm", "jpeg", "jpg", "png"])
 
 if uploaded_file is not None:
     file_extension = uploaded_file.name.split('.')[-1].lower()
@@ -73,19 +73,19 @@ if uploaded_file is not None:
     preprocessed_image = cv2.resize(image, (128, 128))
 
 
-    st.image(image, caption='Imagem selecionada', use_column_width=True)
+    st.image(image, caption='Selected Image', use_column_width=True)
 
     model_paths = {
-        'densidade': 'new_breast_densityII_128_10k.h5',      
-        'calcificações': 'calcificacoes.h5',
-        'distorção arquitetural': 'distorcao.h5',
-        'espessamento, retração de pele ou areolar': 'espessamento.h5',
-        'esteatonecrose': 'esteatonecrose.h5',
-        'linfonodo intramamário': 'linfonodo.h5',
-        'nódulo': 'nodulo.h5'
+        'Density': 'new_breast_densityII_128_10k.h5',      
+        'Calcification': 'calcificacoes.h5',
+        'Architectural Distortion': 'distorcao.h5',
+        'Skin/Areolar Thickening or Retraction ': 'espessamento.h5',
+        'Steatonecrosis': 'esteatonecrose.h5',
+        'Intramammary Lymph Node ': 'linfonodo.h5',
+        'Nodule': 'nodulo.h5'
     }
 
-    class_labels_achados = ["Não", "Sim"]
+    class_labels_achados = ["No", "Yes"]
 
     for model_name, model_path in model_paths.items():
         model = load_model1(model_path)
@@ -99,9 +99,9 @@ if uploaded_file is not None:
                 predicted_class_label_density = class_labels_density[predicted_class_index_density]
                 
                 if predicted_class_label_density in ["BIRADS A", "BIRADS B"]:
-                    st.write(f"Mama não densa: {predicted_class_label_density}")
+                    st.write(f"Non Dense Breast: {predicted_class_label_density}")
                 else:
-                    st.write(f"Mama densa: {predicted_class_label_density}")
+                    st.write(f"Dense Breast: {predicted_class_label_density}")
             else:
                 predicted_class_label = predict_class(model, preprocessed_image, class_labels_achados)
                 if predicted_class_label:
