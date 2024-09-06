@@ -1,4 +1,4 @@
-yimport streamlit as st
+import streamlit as st
 import pydicom
 import numpy as np
 from PIL import Image
