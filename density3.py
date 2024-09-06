@@ -1,4 +1,4 @@
-import streamlit as st
+yimport streamlit as st
 import pydicom
 import numpy as np
 from PIL import Image
@@ -91,7 +91,7 @@ if uploaded_file is not None:
         model = load_model1(model_path)
 
         if model:
-            if model_name == 'densidade':
+            if model_name == 'Density':
                 # Define your list of class labels
                 class_labels_density = ["BIRADS A", "BIRADS B", "BIRADS C", "BIRADS D"]
                 prediction_density = model.predict(np.expand_dims(preprocessed_image, axis=0))
